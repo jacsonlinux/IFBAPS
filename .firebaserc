@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ifba-portoseguro": {
+      "hosting": {
+        "IFBAPS": [
+          "ifba-portoseguro"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ifba-portoseguro"
+  }
+}
