@@ -1,0 +1,12 @@
+p{
+  font-size: x-small !important;
+  color: grey !important;
+}
+
+.mat-list-base .mat-list-item .mat-list-avatar, .mat-list-base .mat-list-option .mat-list-avatar {
+  border-radius: 50%;
+  padding: 10px;
+  border: 1px solid dimgrey;
+  height: auto;
+  width: auto;
+}

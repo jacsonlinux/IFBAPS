@@ -1,0 +1,15 @@
+<mat-nav-list >
+  <mat-list-item
+    (click)="getComputer(computer)"
+    *ngFor="let computer of computers | async"
+    routerLink="../computer-details">
+    <mat-icon *ngIf="!computer.active; else active" matListAvatar color="primary" class="icon-avatar">desktop_windows</mat-icon>
+    <ng-template #active><mat-icon matListAvatar color="accent" class="icon-avatar">desktop_windows</mat-icon></ng-template>
+    <h3 matLine>{{computer.system.model}}</h3>
+    <p matLine>{{computer.id | uppercase}}</p>
+    <div *ngIf="computer?.maintenance?.status">
+      <mat-icon fontSet="material-icons-outlined" color="warn">build_circle</mat-icon>
+    </div>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-nav-list>

@@ -1,0 +1,50 @@
+.container{
+  max-height: 70vh !important;
+  object-fit: contain !important;
+  position: center !important;
+  display: flex !important;
+  min-height: 70vh !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-direction: column !important;
+}
+
+.mat-icon{
+  margin-bottom: 30px;
+}
+
+button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.scanner-shell {
+  width: 50%;
+  //border-radius: 5px;
+  //border: solid 1px grey;
+}
+
+p{
+  margin-top: 30px;
+}
+
+/*
+:host zxing-scanner div {
+                                max-height: 70vh;
+                                width: 100vw;
+                                object-fit: contain;
+                              }
+:host zxing-scanner #scanner{
+  height: 15rem;
+  width: 100vw;
+  object-fit: contain;
+}
+
+video {
+  height: 15rem !important;
+}
+*/

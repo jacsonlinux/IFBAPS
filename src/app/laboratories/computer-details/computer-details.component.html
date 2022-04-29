@@ -1,0 +1,45 @@
+<div class="grid-container">
+  <div class="mat-h3">
+    <button (click)="saveComputer(this.computer)" mat-stroked-button color="accent">
+      <mat-icon>data_object</mat-icon>
+    </button>&nbsp;&nbsp;
+    <button mat-stroked-button color="accent">
+      <mat-icon fontSet="material-icons-outlined">move_up</mat-icon>
+    </button>&nbsp;&nbsp;
+    <button mat-stroked-button routerLink="../maintenance-details" [disabled]="!computer?.maintenance?.status" color="warn">
+      <mat-icon fontSet="material-icons-outlined">handyman</mat-icon>
+    </button>
+
+
+    <div [hidden]="point" style="float: right">
+      <span style="color: lightgreen" *ngIf="computer.active; else active">ID: {{computer.id}}</span>
+      <ng-template #active>
+        <span style="color: lightgrey">ID: {{computer.id}}</span>
+      </ng-template>
+      <span> - {{laboratory.description | uppercase}}</span>
+    </div>
+
+
+
+  </div>
+  <mat-grid-list cols="4" rowHeight="200px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <div  mat-card-avatar>
+            <fa-icon size="3x" [icon]="card.icon"></fa-icon>
+          </div>
+          <mat-card-title>&nbsp;{{card.title}}
+          </mat-card-title>
+          <mat-card-subtitle>&nbsp;{{card.title}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content class="dashboard-card-content">
+          <div *ngFor="let item of card.data">
+            <span>{{item | slice: 0:50}}</span>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

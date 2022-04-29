@@ -1,1 +1,9 @@
-<p>profile works!</p>
+<div class="content" fxLayout="row" fxLayout.xs="column" >
+  <div fxFlex="50" class="sec1">
+    <img alt="" src="{{(authService.user | async)?.photoURL}}">
+    <p>Nome: {{(authService.user | async)?.displayName }}</p>
+    <p>E-Mail: {{(authService.user | async)?.email }}</p>
+    <p>Attribution: {{(authService.user | async)?.profile }}</p>
+  </div>
+  <div fxFlex="50" class="sec2"></div>
+</div>

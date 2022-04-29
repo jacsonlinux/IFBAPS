@@ -1,1 +1,8 @@
-<p>login works!</p>
+<div>
+  <button *ngIf="showButton; else showSpinner" mat-stroked-button color="accent" (click)="login()">Sign in with google
+    <mat-icon>login</mat-icon>
+  </button>
+  <ng-template #showSpinner>
+    <mat-spinner [diameter]="70" [color]="'primary'" [strokeWidth]="3"></mat-spinner>
+  </ng-template>
+</div>

@@ -29,6 +29,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {FlexModule} from "@angular/flex-layout";
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 @NgModule({
   declarations: [
@@ -66,7 +69,10 @@ import { ProfileComponent } from './profile/profile.component';
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatProgressSpinnerModule,
+    FlexModule,
+    FontAwesomeModule
   ],
   providers: [
     ScreenTrackingService,UserTrackingService

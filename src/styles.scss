@@ -2,3 +2,31 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.green-snackbar {
+  background: rgb(65, 252, 134);
+  color: white;
+}
+.green-snackbar button {
+  background-color: rgb(65, 252, 134);
+  color: white;
+  border: none;
+}
+.orange-snackbar {
+  background: #ff7800;
+  color: white;
+}
+.orange-snackbar button {
+  background-color: #ff7800;
+  color: white !important;
+  border: none;
+}
+.red-snackbar {
+  background: #ff0000;
+  color: white;
+}
+.red-snackbar button {
+  background-color: #ff0000;
+  color: white !important;
+  border: none;
+}

@@ -1,0 +1,20 @@
+<!--
+<div *ngFor="let maintenance of this.maintenances | async">
+
+</div>
+-->
+
+<!--(click)="getComputer(computer)"-->
+
+<mat-nav-list >
+  <mat-list-item
+    *ngFor="let computer of computers | async" >
+    <mat-icon matListAvatar color="primary" class="icon-avatar">desktop_access_disabled</mat-icon>
+    <h3 matLine>{{computer.data()?.system?.model}}</h3>
+    <p matLine>{{computer.id | uppercase}}</p>
+    <div *ngIf="computer.data()?.maintenance?.status">
+      <mat-icon fontSet="material-icons-outlined" color="warn">build_circle</mat-icon>
+    </div>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-nav-list>

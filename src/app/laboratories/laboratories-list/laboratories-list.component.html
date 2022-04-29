@@ -1,0 +1,24 @@
+
+<mat-nav-list *ngIf="(authService.user | async)?.profile !== 'technical'; else technical">
+  <mat-list-item
+    (click)="getLaboratory(laboratory)"
+    *ngFor="let laboratory of laboratories | async" routerLink="../computer-list">
+    <mat-icon matListAvatar class="icon-avatar mat-primary">place</mat-icon>
+    <h3 matLine>{{laboratory.code}}</h3>
+    <p matLine>{{laboratory.description | titlecase}}</p>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-nav-list>
+
+<ng-template #technical>
+  <mat-nav-list>
+    <mat-list-item
+      (click)="getLaboratory(laboratory)"
+      *ngFor="let laboratory of laboratories | async" routerLink="../computer-list">
+      <mat-icon matListAvatar class="icon-avatar mat-primary">place</mat-icon>
+      <h3 matLine>{{laboratory.code}}</h3>
+      <p matLine>{{laboratory.description | titlecase}}</p>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-nav-list>
+</ng-template>
