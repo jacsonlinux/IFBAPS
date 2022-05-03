@@ -22,6 +22,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {ZXingScannerModule} from "@zxing/ngx-scanner";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { RepairDetailsComponent } from './repair-details/repair-details.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     ComputerDetailsComponent,
     RequestRepairComponent,
     ComputerScanComponent,
-    RepairListComponent
+    RepairListComponent,
+    RepairDetailsComponent
   ],
   imports: [
     CommonModule,

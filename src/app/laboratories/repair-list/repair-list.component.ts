@@ -12,10 +12,14 @@ export class RepairListComponent implements OnInit {
 
   constructor(private laboratoriesService: LaboratoriesService) {
     this.laboratoriesService.getMaintenances()
-      .then(res => { this.computers = res })
+      .then(res => this.computers = res)
       .catch(err => console.error(err));
   }
 
-  ngOnInit(): void {
+  async getComputer(data: object) {
+    this.laboratoriesService.setItem('maintenance', JSON.stringify(data));
   }
+
+  ngOnInit(): void { }
+
 }

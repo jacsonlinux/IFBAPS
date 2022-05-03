@@ -7,6 +7,7 @@ import {RepairListComponent} from "./repair-list/repair-list.component";
 import {RequestRepairComponent} from "./request-repair/request-repair.component";
 import {ComputerListComponent} from "./computer-list/computer-list.component";
 import {ComputerDetailsComponent} from "./computer-details/computer-details.component";
+import {RepairDetailsComponent} from "./repair-details/repair-details.component";
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 
@@ -34,6 +35,13 @@ const routes: Routes = [
         data: {
           authGuardPipe: redirectUnauthorizedToLogin,
           title: 'REQUEST REPAIR' }
+      },
+      { path: 'repair-details',
+        component: RepairDetailsComponent,
+        canActivate: [ AuthGuard ],
+        data: {
+          authGuardPipe: redirectUnauthorizedToLogin,
+          title: 'REPAIR COMPUTER' }
       },
       { path: 'computer-list',
         component: ComputerListComponent,

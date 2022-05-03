@@ -1,12 +1,12 @@
 <div class="grid-container">
   <div class="mat-h3">
-    <button (click)="saveComputer(this.computer)" mat-stroked-button color="accent">
+    <button (click)="saveComputer(this.computer)" mat-stroked-button color="primary">
       <mat-icon>data_object</mat-icon>
     </button>&nbsp;&nbsp;
     <button mat-stroked-button color="accent">
       <mat-icon fontSet="material-icons-outlined">move_up</mat-icon>
     </button>&nbsp;&nbsp;
-    <button mat-stroked-button routerLink="../maintenance-details" [disabled]="!computer?.maintenance?.status" color="warn">
+    <button mat-stroked-button routerLink="../repair-details" [disabled]="!computer?.maintenance?.status" color="warn">
       <mat-icon fontSet="material-icons-outlined">handyman</mat-icon>
     </button>
 
@@ -16,7 +16,7 @@
       <ng-template #active>
         <span style="color: lightgrey">ID: {{computer.id}}</span>
       </ng-template>
-      <span> - {{laboratory.description | uppercase}}</span>
+      <span> - {{laboratory?.description | uppercase}}</span>
     </div>
 
 

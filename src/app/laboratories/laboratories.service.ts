@@ -27,7 +27,7 @@ export class LaboratoriesService {
     return sessionStorage.getItem(key)
   }
 
-  clear() {
+  clearStorage() {
     sessionStorage.clear();
   }
 
@@ -44,12 +44,10 @@ export class LaboratoriesService {
   }
 
   async getMaintenances() {
-    return collectionSnapshots(query(
-      collectionGroup(this.firestore, 'computers'), where('maintenance.status', '==', true)))
-      .pipe(map(res => res.map(computer => {
-        console.log(computer);
-        return computer
-      })));
+    return collectionData<object>(query(
+      collectionGroup(this.firestore, 'computers'),
+      where('maintenance.status', '==', true)), {idField: 'id'})
+      .pipe(map(collection => collection.map(computer => computer)));
   }
 
   async requestRepair(uuid: string, comment: string, user: string) {
@@ -96,6 +94,13 @@ export class LaboratoriesService {
         )
       )
   }
+
+  /*async getMaintenances() {
+    return collectionSnapshots<object>(query(
+      collectionGroup(this.firestore, 'computers'),
+      where('maintenance.status', '==', true)))
+      .pipe(map(collection => collection.map(computers => computers )));
+  }*/
 
 }
 
