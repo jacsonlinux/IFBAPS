@@ -1,1 +1,5 @@
 <p>repair-details works! {{computer.maintenance.status}}</p>
+
+<div  *ngFor="let maintenance of computer.maintenance.historic">
+  {{maintenance.data_open}}
+</div>

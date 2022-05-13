@@ -263,4 +263,3 @@ export class ComputerDetailsComponent implements OnInit {
   ngOnInit(): void { };
 
 }
-

@@ -3,7 +3,7 @@
     (click)="getComputer(computer)"
     *ngFor="let computer of computers | async"
     routerLink="../computer-details">
-    <mat-icon *ngIf="!computer.active; else active" matListAvatar color="primary" class="icon-avatar">desktop_windows</mat-icon>
+    <mat-icon *ngIf="!computer.active; else active" matListAvatar color="warn" class="icon-avatar">desktop_windows</mat-icon>
     <ng-template #active><mat-icon matListAvatar color="accent" class="icon-avatar">desktop_windows</mat-icon></ng-template>
     <h3 matLine>{{computer.system.model}}</h3>
     <p matLine>{{computer.id | uppercase}}</p>
