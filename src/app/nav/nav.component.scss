@@ -1,3 +1,9 @@
+img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50px;
+}
+
 .sidenav-container {
   height: 100%;
 }
@@ -20,24 +26,3 @@ mat-toolbar span {
   width: 100%;
   text-align: center;
 }
-
-
-/*
-.sidenav-container {
-  height: 100%;
-}
-
-.sidenav {
-  width: 200px;
-}
-
-.sidenav .mat-toolbar {
-  background: inherit;
-}
-
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-*/

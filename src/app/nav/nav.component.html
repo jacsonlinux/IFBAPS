@@ -7,21 +7,34 @@
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
                [opened]="(isHandset$ | async) === false" >
-    <mat-toolbar>menu</mat-toolbar>
+
+
+    <div style="padding: 16px">
+      <img alt="" src="{{(authService.user | async)?.photoURL}}">
+      <p style="margin-bottom: 0">{{(authService.user | async)?.displayName }}</p>
+      <p style="color: grey">{{(authService.user | async)?.email }}</p>
+    </div>
+
     <mat-nav-list>
+      <mat-divider></mat-divider>
       <div *ngIf="(isHandset$ | async) === false">
-        <a mat-list-item routerLink="laboratories/dashboard">home</a>
-        <a mat-list-item routerLink="laboratories/laboratories-list">laboratórios</a>
-        <a mat-list-item routerLink="laboratories/request-repair/">solicitar reparo</a>
-        <a mat-list-item routerLink="laboratories/repair-list/">em manutenção</a>
+        <a mat-list-item routerLink="laboratories/dashboard"><mat-icon>home</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;home</a>
+        <a mat-list-item routerLink="laboratories/laboratories-list"><mat-icon class="material-icons-outlined">lan</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;laboratórios</a>
+        <a mat-list-item routerLink="laboratories/request-repair/"><mat-icon>qr_code_scanner</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;solicitar reparo</a>
+        <a mat-list-item routerLink="laboratories/repair-list/"><mat-icon class="material-icons-outlined" >build_circle</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;em manutenção</a>
+        <mat-divider></mat-divider>
+        <a (click)="authService.logout()" mat-list-item><mat-icon class="material-icons-outlined">logout</mat-icon>&nbsp;&nbsp;&nbsp;logout</a>
       </div>
       <div *ngIf="(isHandset$ | async) === true">
-        <a (click)="drawer.toggle()" mat-list-item routerLink="laboratories/dashboard">home</a>
-        <a (click)="drawer.toggle()" mat-list-item routerLink="laboratories/laboratories-list">laboratórios</a>
-        <a (click)="drawer.toggle()" mat-list-item routerLink="laboratories/request-repair/">solicitar reparo</a>
-        <a (click)="drawer.toggle()" mat-list-item routerLink="laboratories/repair-list/">em manutenção</a>
+        <a (click)="drawer.toggle()" mat-list-item routerLink="laboratories/dashboard"><mat-icon>home</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;home</a>
+        <a (click)="drawer.toggle()" mat-list-item routerLink="laboratories/laboratories-list"><mat-icon class="material-icons-outlined">lan</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;laboratórios</a>
+        <a (click)="drawer.toggle()" mat-list-item routerLink="laboratories/request-repair/"><mat-icon>qr_code_scanner</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;solicitar reparo</a>
+        <a (click)="drawer.toggle()" mat-list-item routerLink="laboratories/repair-list/"><mat-icon class="material-icons-outlined" >build_circle</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;em manutenção</a>
+        <mat-divider></mat-divider>
+        <a (click)="authService.logout()" mat-list-item><mat-icon class="material-icons-outlined">logout</mat-icon>&nbsp;&nbsp;&nbsp;logout</a>
       </div>
     </mat-nav-list>
+
   </mat-sidenav>
 
   <mat-sidenav-content>
