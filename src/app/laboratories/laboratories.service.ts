@@ -43,6 +43,13 @@ export class LaboratoriesService {
       .pipe(map(collection => collection.map(computer => computer)))
   }
 
+  async getComputersActive() {
+    return collectionData<object>(query(
+      collectionGroup(this.firestore, 'computers'),
+      where('active', '==', true)), {idField: 'id'})
+      .pipe(map(collection => collection.map(computer => computer)));
+  }
+
   async getMaintenances() {
     return collectionData<object>(query(
       collectionGroup(this.firestore, 'computers'),

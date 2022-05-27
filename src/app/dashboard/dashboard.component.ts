@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import {faQrcode} from '@fortawesome/free-solid-svg-icons';
+import {LaboratoriesService} from "../laboratories/laboratories.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-dashboard',
@@ -9,8 +11,13 @@ import {faQrcode} from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
+
   faQrcode = faQrcode;
-  /** Based on the screen size, switch from standard to one column per row */
+
+  //public computersON: any;
+
+  public computersON$: any;
+
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {
@@ -25,7 +32,7 @@ export class DashboardComponent {
       }
 
       return [
-        { title: 'Card 1', cols: 1, rows: 1 },
+        { title: 'Ativos', content: this.computersON$, cols: 1, rows: 1 },
         { title: 'Card 2', cols: 1, rows: 1 },
         { title: 'Card 3', cols: 1, rows: 1 },
         { title: 'Card 4', cols: 1, rows: 1 },
@@ -35,5 +42,12 @@ export class DashboardComponent {
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private laboratoriesService: LaboratoriesService) {
+
+    this.computersON$ = this.laboratoriesService.getComputersActive().then(res => res.subscribe(res => res.length));
+
+  }
+
 }

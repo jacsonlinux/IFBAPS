@@ -8,7 +8,6 @@
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
                [opened]="(isHandset$ | async) === false" >
 
-
     <div style="padding: 16px">
       <img alt="" src="{{(authService.user | async)?.photoURL}}">
       <p style="margin-bottom: 0">{{(authService.user | async)?.displayName }}</p>
@@ -18,7 +17,7 @@
     <mat-nav-list>
       <mat-divider></mat-divider>
       <div *ngIf="(isHandset$ | async) === false">
-        <a mat-list-item routerLink="laboratories/dashboard"><mat-icon>home</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;home</a>
+        <a mat-list-item routerLink="laboratories/dashboard"><mat-icon>home</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;início</a>
         <a mat-list-item routerLink="laboratories/laboratories-list"><mat-icon class="material-icons-outlined">lan</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;laboratórios</a>
         <a mat-list-item routerLink="laboratories/request-repair/"><mat-icon>qr_code_scanner</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;solicitar reparo</a>
         <a mat-list-item routerLink="laboratories/repair-list/"><mat-icon class="material-icons-outlined" >build_circle</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;em manutenção</a>
@@ -26,7 +25,7 @@
         <a (click)="authService.logout()" mat-list-item><mat-icon class="material-icons-outlined">logout</mat-icon>&nbsp;&nbsp;&nbsp;logout</a>
       </div>
       <div *ngIf="(isHandset$ | async) === true">
-        <a (click)="drawer.toggle()" mat-list-item routerLink="laboratories/dashboard"><mat-icon>home</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;home</a>
+        <a (click)="drawer.toggle()" mat-list-item routerLink="laboratories/dashboard"><mat-icon>home</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;início</a>
         <a (click)="drawer.toggle()" mat-list-item routerLink="laboratories/laboratories-list"><mat-icon class="material-icons-outlined">lan</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;laboratórios</a>
         <a (click)="drawer.toggle()" mat-list-item routerLink="laboratories/request-repair/"><mat-icon>qr_code_scanner</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;solicitar reparo</a>
         <a (click)="drawer.toggle()" mat-list-item routerLink="laboratories/repair-list/"><mat-icon class="material-icons-outlined" >build_circle</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;em manutenção</a>
@@ -47,31 +46,15 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <!--<span>{{title}}</span>-->
-      <div style="position: absolute; right: 10px">
-        <button mat-icon-button>
-          <mat-icon>notifications</mat-icon>
-        </button>
-        <button mat-icon-button [matMenuTriggerFor]="menu">
-          <mat-icon>account_circle</mat-icon>
-        </button>
-      </div>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/profile">
-          <mat-icon>account_box</mat-icon>
-          <span>Profile</span>
-        </button>
-        <button mat-menu-item (click)="authService.logout();">
-          <mat-icon>logout</mat-icon>
-          <span>Logout</span>
-        </button>
-      </mat-menu>
+      <span>{{title}}</span>
+      <button mat-icon-button>
+        <mat-icon>notifications</mat-icon>
+      </button>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 
 </mat-sidenav-container>
-
 <ng-template #showLogin>
   <mat-sidenav-container class="sidenav-container">
     <router-outlet></router-outlet>
